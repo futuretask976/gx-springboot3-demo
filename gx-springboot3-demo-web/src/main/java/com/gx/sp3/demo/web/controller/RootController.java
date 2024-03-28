@@ -64,7 +64,7 @@ public class RootController {
     @GetMapping(value = "/test003")
     public String test003(@RequestParam("param") String param) {
         try {
-            System.out.println("MainController#test001 entering");
+            System.out.println("MainController#test003 entering");
             return "success: " + param;
         } catch (Exception e) {
             e.printStackTrace();
