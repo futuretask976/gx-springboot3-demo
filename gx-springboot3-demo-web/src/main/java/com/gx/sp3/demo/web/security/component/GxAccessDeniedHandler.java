@@ -20,7 +20,7 @@ public class GxAccessDeniedHandler implements AccessDeniedHandler {
         response.setHeader("Cache-Control","no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println("无权限访问");
+        response.getWriter().println("广夏：无权限访问");
         response.getWriter().flush();
     }
 }

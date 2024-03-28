@@ -19,7 +19,7 @@ public class GxAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setHeader("Cache-Control","no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println("未经过认证");
+        response.getWriter().println("广夏：未经过认证，认证点击这里：http://localhost:8080/gxsp3demo/login");
         response.getWriter().flush();
     }
 }

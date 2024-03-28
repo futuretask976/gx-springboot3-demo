@@ -32,7 +32,7 @@ public class SecurityBeanConfig {
     }
 
     @Bean
-    public AuthenticationEntryPoint restAuthenticationEntryPoint() {
+    public AuthenticationEntryPoint restfulAuthenticationEntryPoint() {
         System.out.printf("!!! SecurityBaseConfig#restAuthenticationEntryPoint entering\n");
         return new GxAuthenticationEntryPoint();
     }

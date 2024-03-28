@@ -1,23 +1,19 @@
-package com.gx.sp3.demo.web.security.conf;
-
-//import com.gx.web.security.component.*;
+//package com.gx.sp3.demo.web.security.conf;
+//
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.http.HttpMethod;
-//import org.springframework.security.authentication.AuthenticationManager;
-//import org.springframework.security.authentication.AuthenticationProvider;
-//import org.springframework.security.authentication.ProviderManager;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 //import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 //import org.springframework.security.config.http.SessionCreationPolicy;
 //import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.web.AuthenticationEntryPoint;
 //import org.springframework.security.web.SecurityFilterChain;
-//import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+//import org.springframework.security.web.access.AccessDeniedHandler;
 //
-//import java.util.Arrays;
+//import java.util.stream.Collectors;
 //
 ///**
 // * SpringSecurity相关配置，仅用于配置SecurityFilterChain
@@ -25,36 +21,23 @@ package com.gx.sp3.demo.web.security.conf;
 // */
 //@Configuration
 //@EnableWebSecurity
-//public class SecurityPeakConfig {
+//public class SecurityPathConfig {
 //    @Autowired
 //    private IgnoreUrlsConfig ignoreUrlsConfig;
 //
 //    @Autowired
-//    private GxAccessDeniedHandler gxAccessDeniedHandler;
+//    private AccessDeniedHandler gxAccessDeniedHandler;
 //
 //    @Autowired
-//    private GxAuthenticationEntryPoint restAuthenticationEntryPoint;
-//
-//    @Autowired
-//    private GxAuthenticationTokenFilter jwtAuthenticationTokenFilter;
-//
-////    @Autowired
-////    private GxAuthorizationManager dynamicAuthorizationManager;
+//    private AuthenticationEntryPoint gxAuthenticationEntryPoint;
 //
 //    @Autowired
 //    private UserDetailsService userDetailsService;
 //
-//    @Autowired
-//    private AuthenticationProvider authenticationProvider;
-//
 //    @Bean
 //    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-////        AuthenticationManagerBuilder authenticationManagerBuilder = httpSecurity.getSharedObject(
-////                AuthenticationManagerBuilder.class);
-////        authenticationManagerBuilder.userDetailsService(userDetailsService);
-////        authenticationManagerBuilder.authenticationProvider(authenticationProvider);
-////        System.out.println("SecurityPeakConfig#securityFilterChain userDetailsService=" + userDetailsService + ", authenticationProvider=" + authenticationProvider);
-////        AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
+//        System.out.printf("!!! SecurityPathConfig#securityFilterChain ignoreUrlsConfig=%s\n"
+//                , ignoreUrlsConfig.getUrls() == null ? null : ignoreUrlsConfig.getUrls().stream().collect(Collectors.joining(", ")));
 //
 //        httpSecurity
 //                .authorizeHttpRequests((authorize) -> authorize
@@ -62,19 +45,18 @@ package com.gx.sp3.demo.web.security.conf;
 //                        .requestMatchers(HttpMethod.OPTIONS).permitAll()
 //                        .requestMatchers("/test001").hasAuthority("USER")
 //                        .requestMatchers("/test002").hasAuthority("ADMIN")
-//                        .requestMatchers("/blog/page").hasAuthority("PLAYER")
-//                        .anyRequest().authenticated()
+//                        // .anyRequest().authenticated()
 //                )
-////                .authorizeHttpRequests((authorize) -> authorize
-////                        .anyRequest().access(dynamicAuthorizationManager)
-////                )
+//                // .authorizeHttpRequests((authorize) -> authorize
+//                //         .anyRequest().access(dynamicAuthorizationManager)
+//                // )
 //                .csrf(AbstractHttpConfigurer::disable)
 //                .sessionManagement((configurer) -> configurer
 //                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 //                .exceptionHandling((customizer) -> customizer
-//                        .authenticationEntryPoint(restAuthenticationEntryPoint)
+//                        .authenticationEntryPoint(gxAuthenticationEntryPoint)
 //                        .accessDeniedHandler(gxAccessDeniedHandler))
-//                .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
+//                // .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
 //                .formLogin((form) -> form
 //                        .loginPage("/login")
 //                        .permitAll()
