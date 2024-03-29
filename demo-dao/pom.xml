@@ -10,8 +10,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>demo-web</artifactId>
-    <packaging>war</packaging>
+    <artifactId>demo-dao</artifactId>
 
     <properties>
         <java.version>17</java.version>
@@ -23,14 +22,6 @@
     </properties>
 
     <dependencies>
-        <!-- internal start -->
-        <dependency>
-            <groupId>com.gx</groupId>
-            <artifactId>demo-dao</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <!-- internal end -->
-
         <!-- spring start -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,19 +29,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- spring end -->
 
@@ -73,6 +56,13 @@
         </dependency>
         <!-- log end -->
 
+        <!-- alibaba start -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <!-- alibaba end -->
+
         <!-- apache start -->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -80,6 +70,21 @@
             <version>3.4</version>
         </dependency>
         <!-- apache end -->
+
+        <!-- database start -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- database end -->
 
         <!-- 兼容 java 高版本 start -->
         <dependency>
@@ -131,44 +136,4 @@
         </dependency>
         <!-- others end -->
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <warName>gxsp3demo</warName>
-<!--                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>-->
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                    <include>**/*.yml</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                    <include>**/*.yml</include>
-                </includes>
-            </resource>
-        </resources>
-    </build>
 </project>

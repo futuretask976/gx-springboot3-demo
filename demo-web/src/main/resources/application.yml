@@ -22,6 +22,11 @@ jwt:
   expiration: 604800 #JWT的超期限时间(60*60*24*7)
   tokenHead: 'Bearer '  #JWT负载中拿到开头
 
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath*:com/**/mapper/*.xml
+
 secure:
   ignored:
     urls: #安全路径白名单，不包含 tomcat 中 context 的 path（从之后开始算）
