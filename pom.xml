@@ -30,6 +30,7 @@
         <module>demo-dao</module>
         <module>demo-api</module>
         <module>demo-gtmf</module>
+        <module>demo-biz</module>
     </modules>
 
     <dependencyManagement>
