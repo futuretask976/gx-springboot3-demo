@@ -74,7 +74,7 @@ public class SecurityChainConfig {
                                 .logoutSuccessUrl("/bye")
                 )
                 .exceptionHandling(customizer -> customizer
-                        // .authenticationEntryPoint(gxAuthenticationEntryPoint)
+                        .authenticationEntryPoint(gxAuthenticationEntryPoint)
                         .accessDeniedHandler(gxAccessDeniedHandler))
                 .build();
     }
