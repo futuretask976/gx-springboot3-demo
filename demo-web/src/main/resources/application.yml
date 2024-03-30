@@ -45,7 +45,7 @@ secure:
       - /actuator/**
       - /druid/**
       - /test001
-      - /failure
+      - /bye
 
 server:
   servlet:

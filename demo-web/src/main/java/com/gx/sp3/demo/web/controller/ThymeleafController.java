@@ -34,10 +34,17 @@ public class ThymeleafController {
         return "login";
     }
 
-    @PostMapping("/loginAction")
-    public String loginAction() {
-        System.out.printf("!!! ThymeleafController#loginAction entering\n");
+    @GetMapping("/welcome")
+    public String welcome() {
+        System.out.printf("!!! ThymeleafController#welcome entering\n");
         // 处理登录逻辑
-        return "redirect:/welcome"; // 登录成功后跳转的页面
+        return "welcome"; // 登录成功后跳转的页面
+    }
+
+    @GetMapping("/bye")
+    public String bye(Model model) {
+        System.out.printf("!!! ThymeleafController#bye entering\n");
+        model.addAttribute("msg", "see you next");
+        return "bye"; // 登录成功后跳转的页面
     }
 }

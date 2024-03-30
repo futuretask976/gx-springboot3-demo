@@ -67,7 +67,7 @@ public class SecurityChainConfig {
                 .logout(logout ->
                         logout
                                 .logoutUrl("/logout")
-                                .logoutSuccessUrl("/")
+                                .logoutSuccessUrl("/bye")
                 )
                 .exceptionHandling(customizer -> customizer
                         // .authenticationEntryPoint(gxAuthenticationEntryPoint)
