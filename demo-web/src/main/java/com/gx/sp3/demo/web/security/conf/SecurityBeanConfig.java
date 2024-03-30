@@ -1,6 +1,7 @@
 package com.gx.sp3.demo.web.security.conf;
 
 import com.gx.sp3.demo.web.security.component.GxAccessDeniedHandler;
+import com.gx.sp3.demo.web.security.component.GxAuthSuccessHandler;
 import com.gx.sp3.demo.web.security.component.GxAuthenticationEntryPoint;
 import com.gx.sp3.demo.web.security.encoder.MD5PasswordEncoder;
 import com.gx.sp3.demo.web.security.service.GxUserDetailService;
@@ -10,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 public class SecurityBeanConfig {
@@ -41,6 +43,11 @@ public class SecurityBeanConfig {
     public UserDetailsService userDetailsService() {
         System.out.printf("!!! SecurityBaseConfig#userDetailsService entering\n");
         return new GxUserDetailService();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler authSuccessHandler() {
+        return new GxAuthSuccessHandler();
     }
 
 //    @Bean

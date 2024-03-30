@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import java.util.stream.Collectors;
 
@@ -35,6 +36,9 @@ public class SecurityChainConfig {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private AuthenticationSuccessHandler gxAuthSuccessHandler;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         // We are disabling CSRF so that our forms don't complain about a CSRF token.
@@ -48,7 +52,7 @@ public class SecurityChainConfig {
                                 .usernameParameter("username")
                                 .passwordParameter("password")
                                 .permitAll() // We re permitting all for login page
-                                .defaultSuccessUrl("/welcome") // If the login is successful, user will be redirected to this URL.
+                                .successHandler(gxAuthSuccessHandler) // .defaultSuccessUrl("/welcome") // If the login is successful, user will be redirected to this URL.
                                 .failureUrl("/login?error=true"); // If the user fails to login, application will redirect the user to this endpoint
                 })
                 .authorizeHttpRequests(authorize ->
