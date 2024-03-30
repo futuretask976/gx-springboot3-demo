@@ -14,12 +14,18 @@ import java.io.IOException;
 public class GxAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
-            AuthenticationException authException) throws IOException, ServletException {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Cache-Control","no-cache");
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json");
-        response.getWriter().println("广夏：未经过认证，认证点击这里：http://localhost:8080/gxsp3demo/login");
-        response.getWriter().flush();
+            AuthenticationException e) throws IOException {
+        System.out.printf("!!! GxAccessDeniedHandler#handle entering: %s， %s\n", e.getMessage(), e.toString());
+//        response.setHeader("Access-Control-Allow-Origin", "*");
+//        response.setHeader("Cache-Control","no-cache");
+//        response.setCharacterEncoding("UTF-8");
+//        response.setContentType("application/json");
+//        response.getWriter().println("广夏：未经过认证，" + e.getMessage());
+//        response.getWriter().flush();
+
+        // 设置状态码为302
+        response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
+        // 设置Location头部，指定重定向的URL
+        response.setHeader("Location", "/gxsp3demo/login");
     }
 }

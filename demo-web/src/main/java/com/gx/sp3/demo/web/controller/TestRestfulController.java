@@ -56,6 +56,21 @@ public class TestRestfulController {
     }
 
     /**
+     * Access this method by http://localhost:8080/gxsp3demo/test004
+     * @return
+     */
+    @GetMapping(value = "/test004")
+    public String test004() {
+        try {
+            System.out.println("!!! TestRestfulController#test004 entering");
+            return "/test004 success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail: " + e.toString();
+        }
+    }
+
+    /**
      * Access this method by http://localhost:8080/gxsp3demo/test001?param=123
      * @param param
      * @return

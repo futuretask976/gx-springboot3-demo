@@ -17,7 +17,12 @@ public class GxUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> grantedAuthorityList = Lists.newArrayList();
-        grantedAuthorityList.add(new SimpleGrantedAuthority("ADMIN"));
+        grantedAuthorityList.add(new GrantedAuthority() {
+            public String getAuthority() {
+                // 系统在外面比较时，会加上ROLE_前缀，所以这里返回时需要加上
+                return "ROLE_ADMIN";
+            }
+        });
         return grantedAuthorityList;
     }
 

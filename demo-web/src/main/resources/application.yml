@@ -44,8 +44,9 @@ secure:
       - /favicon.ico
       - /actuator/**
       - /druid/**
-      - /
       - /test001
+      - /welcome
+      - /failure
 
 server:
   servlet:

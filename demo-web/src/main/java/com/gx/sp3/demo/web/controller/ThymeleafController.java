@@ -3,6 +3,7 @@ package com.gx.sp3.demo.web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ThymeleafController {
@@ -13,7 +14,7 @@ public class ThymeleafController {
     @GetMapping(value = "/")
     public String index(Model model) {
         try {
-            System.out.println("!!! LoginController#index entering");
+            System.out.println("!!! ThymeleafController#index entering");
             model.addAttribute("msg","Thymeleaf入门案例...");
             return "index";
         } catch (Exception e) {
@@ -28,7 +29,14 @@ public class ThymeleafController {
      */
     @GetMapping("/login")
     public String login() {
-        System.out.printf("!!! LoginController#login entering\n");
+        System.out.printf("!!! ThymeleafController#login entering\n");
         return "login";
+    }
+
+    @PostMapping("/loginAction")
+    public String loginAction() {
+        System.out.printf("!!! ThymeleafController#loginAction entering\n");
+        // 处理登录逻辑
+        return "redirect:/welcome"; // 登录成功后跳转的页面
     }
 }
