@@ -5,15 +5,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginController {
+public class ThymeleafController {
     /**
-     * Access this method by http://localhost:8080/gxsp3demo/test000
+     * Access this method by http://localhost:8080/gxsp3demo/
      * @return
      */
     @GetMapping(value = "/")
     public String index(Model model) {
         try {
-            System.out.println("!!! RootController#index entering");
+            System.out.println("!!! LoginController#index entering");
             model.addAttribute("msg","Thymeleaf入门案例...");
             return "index";
         } catch (Exception e) {
@@ -22,6 +22,10 @@ public class LoginController {
         }
     }
 
+    /**
+     * Access this method by http://localhost:8080/gxsp3demo/login
+     * @return
+     */
     @GetMapping("/login")
     public String login() {
         System.out.printf("!!! LoginController#login entering\n");

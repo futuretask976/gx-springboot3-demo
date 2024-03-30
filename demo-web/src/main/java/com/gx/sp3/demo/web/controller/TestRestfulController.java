@@ -17,7 +17,7 @@ public class TestRestfulController {
     @GetMapping(value = "/test001")
     public String test001() {
         try {
-            System.out.println("!!! RootController#test001 entering");
+            System.out.println("!!! TestRestfulController#test001 entering");
             return "/test001 success";
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,7 +32,7 @@ public class TestRestfulController {
     @GetMapping(value = "/test002")
     public String test002() {
         try {
-            System.out.println("!!! RootController#test002 entering");
+            System.out.println("!!! TestRestfulController#test002 entering");
             return "/test002 success";
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,7 +47,7 @@ public class TestRestfulController {
     @GetMapping(value = "/test003")
     public String test003() {
         try {
-            System.out.println("!!! RootController#test003 entering");
+            System.out.println("!!! TestRestfulController#test003 entering");
             return "/test003 success";
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,7 +63,7 @@ public class TestRestfulController {
     @GetMapping(value = "/test101")
     public String test101(@RequestParam("param") String param) {
         try {
-            System.out.println("!!! RootController#test101 entering");
+            System.out.println("!!! TestRestfulController#test101 entering");
             return "/test101 success: " + param;
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,7 +80,7 @@ public class TestRestfulController {
     @GetMapping(value = "/test102")
     public String test102(@RequestParam("param1") String param1, @RequestParam("param2") String param2) {
         try {
-            System.out.println("!!! RootController#test102 entering");
+            System.out.println("!!! TestRestfulController#test102 entering");
             return "/test102 success: " + param1 + ", " + param2;
         } catch (Exception e) {
             e.printStackTrace();

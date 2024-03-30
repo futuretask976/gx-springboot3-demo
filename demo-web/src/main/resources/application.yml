@@ -44,16 +44,8 @@ secure:
       - /favicon.ico
       - /actuator/**
       - /druid/**
+      - /
       - /test001
-      - /test003
-      - /login
-      - /login**
-      - /login/
-      - /login/**
-      - /**/login
-      - /**/login**
-      - /**/login/
-      - /**/login/**
 
 server:
   servlet:
