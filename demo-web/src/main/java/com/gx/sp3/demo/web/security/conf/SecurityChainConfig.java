@@ -78,34 +78,4 @@ public class SecurityChainConfig {
                         .accessDeniedHandler(gxAccessDeniedHandler))
                 .build();
     }
-
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-//        System.out.printf("!!! SecurityChainConfig#filterChain ignoreUrlsConfig=%s\n"
-//                , ignoreUrlsConfig.getUrls() == null ? null : ignoreUrlsConfig.getUrls().stream().collect(Collectors.joining(", ")));
-//
-//        httpSecurity
-//                .formLogin((form) -> form
-//                        .loginPage("/login")
-//                        .loginProcessingUrl("/loginAction")
-//                        .successForwardUrl("/welcome")
-//                        .failureForwardUrl("/welcome")
-//                        .permitAll()
-//                )
-//                .logout((logout) -> logout.permitAll())
-//                .authorizeHttpRequests((authorize) -> authorize
-//                        .requestMatchers(ignoreUrlsConfig.getUrls().stream().toArray(String[]::new)).permitAll()
-//                        .requestMatchers(HttpMethod.OPTIONS).permitAll()
-//                        .requestMatchers("/test002").hasAuthority("USER")
-//                        .requestMatchers("/test003").hasAuthority("ADMIN")
-//                        .anyRequest().authenticated()
-//                )
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .sessionManagement((configurer) -> configurer
-//                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .exceptionHandling((customizer) -> customizer
-//                        .authenticationEntryPoint(gxAuthenticationEntryPoint)
-//                        .accessDeniedHandler(gxAccessDeniedHandler));
-//        return httpSecurity.build();
-//    }
 }
