@@ -6,6 +6,10 @@ import com.gx.sp3.demo.biz.gtmf.impl.business.gxreact.model.BlogPageDO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+/**
+ * 该类目前可不用，报错如下：
+ *     NoSuchBeanDefinitionException: No qualifying bean of type 'com.gx.sp3.demo.dao.mapper.HotelGuestMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@jakarta.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
+ */
 public class GxReactDemo {
     public static void main(String args[]) {
         System.out.println("Testor@main开始被执行");

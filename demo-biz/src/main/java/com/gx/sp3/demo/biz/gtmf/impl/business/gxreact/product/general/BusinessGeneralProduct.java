@@ -21,9 +21,6 @@ import java.util.List;
 public class BusinessGeneralProduct extends BaseGxBusinessTemplate {
     public static final String CODE = "GxReactBusinessGeneralProduct";
 
-    @Resource
-    private HotelGuestMapperAccessor hotelGuestMapperAccessor;
-
     @Override
     public GxBusinessRenderBlogPageExtPoints getGxBusinessRenderBlogPageExtPoints() {
         return new GxBusinessRenderBlogPageExtPoints() {
