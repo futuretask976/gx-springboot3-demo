@@ -1,5 +1,6 @@
 package com.gx.sp3.demo.web.controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,23 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * so here root path only need to be set as /, not /gx
  */
 @RestController
-@RequestMapping("/")
-public class RootController {
-    /**
-     * Access this method by http://localhost:8080/gxsp3demo/test000
-     * @return
-     */
-    @GetMapping(value = "/")
-    public String test000() {
-        try {
-            System.out.println("MainController#test000 entering");
-            return "success: test000";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "fail: " + e.toString();
-        }
-    }
-
+public class TestRestfulController {
     /**
      * Access this method by http://localhost:8080/gxsp3demo/test001
      * @return
@@ -32,7 +17,7 @@ public class RootController {
     @GetMapping(value = "/test001")
     public String test001() {
         try {
-            System.out.println("MainController#test001 entering");
+            System.out.println("!!! RootController#test001 entering");
             return "/test001 success";
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,7 +32,7 @@ public class RootController {
     @GetMapping(value = "/test002")
     public String test002() {
         try {
-            System.out.println("MainController#test002 entering");
+            System.out.println("!!! RootController#test002 entering");
             return "/test002 success";
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,7 +47,7 @@ public class RootController {
     @GetMapping(value = "/test003")
     public String test003() {
         try {
-            System.out.println("MainController#test003 entering");
+            System.out.println("!!! RootController#test003 entering");
             return "/test003 success";
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,7 +63,7 @@ public class RootController {
     @GetMapping(value = "/test101")
     public String test101(@RequestParam("param") String param) {
         try {
-            System.out.println("MainController#test101 entering");
+            System.out.println("!!! RootController#test101 entering");
             return "/test101 success: " + param;
         } catch (Exception e) {
             e.printStackTrace();
@@ -95,7 +80,7 @@ public class RootController {
     @GetMapping(value = "/test102")
     public String test102(@RequestParam("param1") String param1, @RequestParam("param2") String param2) {
         try {
-            System.out.println("MainController#test102 entering");
+            System.out.println("!!! RootController#test102 entering");
             return "/test102 success: " + param1 + ", " + param2;
         } catch (Exception e) {
             e.printStackTrace();

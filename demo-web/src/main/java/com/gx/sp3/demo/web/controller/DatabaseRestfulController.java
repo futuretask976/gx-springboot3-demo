@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/database")
-public class DatabaseController {
+public class DatabaseRestfulController {
     @Resource
     private HotelGuestMapperAccessor hotelGuestMapperAccessor;
 

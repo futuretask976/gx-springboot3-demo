@@ -8,6 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Spring Security提供了一个默认的UserDetails实现User，一般情况下使用该类即可满足需求，
+ * 不过为了扩展，这里依然使用自定义的GxUserDetails
+ * @author miya
+ */
 public class GxUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/gtmf")
-public class GtmfController {
+public class GtmfRestfulController {
     @Resource
     private RenderBlogPageService renderBlogPageService;
 

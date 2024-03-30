@@ -21,7 +21,7 @@
 // */
 //@Configuration
 //@EnableWebSecurity
-//public class SecurityPathConfig {
+//public class SecurityChainConfig {
 //    @Autowired
 //    private IgnoreUrlsConfig ignoreUrlsConfig;
 //
@@ -35,11 +35,15 @@
 //    private UserDetailsService userDetailsService;
 //
 //    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-//        System.out.printf("!!! SecurityPathConfig#securityFilterChain ignoreUrlsConfig=%s\n"
+//    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+//        System.out.printf("!!! SecurityChainConfig#filterChain ignoreUrlsConfig=%s\n"
 //                , ignoreUrlsConfig.getUrls() == null ? null : ignoreUrlsConfig.getUrls().stream().collect(Collectors.joining(", ")));
 //
 //        httpSecurity
+//                .formLogin((form) -> form
+//                        .loginPage("/login")
+//                        .permitAll()
+//                )
 //                .authorizeHttpRequests((authorize) -> authorize
 //                        .requestMatchers(ignoreUrlsConfig.getUrls().stream().toArray(String[]::new)).permitAll()
 //                        .requestMatchers(HttpMethod.OPTIONS).permitAll()
@@ -57,10 +61,6 @@
 //                        .authenticationEntryPoint(gxAuthenticationEntryPoint)
 //                        .accessDeniedHandler(gxAccessDeniedHandler))
 //                // .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
-//                .formLogin((form) -> form
-//                        .loginPage("/login")
-//                        .permitAll()
-//                )
 //                .logout((logout) -> logout.permitAll());
 //        return httpSecurity.build();
 //    }
