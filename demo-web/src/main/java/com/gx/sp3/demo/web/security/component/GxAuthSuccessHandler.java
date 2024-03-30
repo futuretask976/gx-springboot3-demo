@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
@@ -17,7 +18,7 @@ public class GxAuthSuccessHandler implements AuthenticationSuccessHandler {
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
             Authentication authentication) throws IOException {
         HttpSession session = request.getSession();
-        User authUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails authUser = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         session.setAttribute("user", authUser);
         session.setAttribute("username", authUser.getUsername());
         session.setAttribute("authorities", authentication.getAuthorities());
@@ -28,6 +29,6 @@ public class GxAuthSuccessHandler implements AuthenticationSuccessHandler {
         // Since we have created our custom success handler, its up to us,
         // to where we will redirect the user after successfully login
         SavedRequest savedRequest = new HttpSessionRequestCache().getRequest(request, response);
-        response.sendRedirect(savedRequest.getRedirectUrl().isEmpty() ? "/" : savedRequest.getRedirectUrl()); //requestUrl!=null?requestUrl:
+        response.sendRedirect(savedRequest.getRedirectUrl().isEmpty() ? "/welcome" : savedRequest.getRedirectUrl()); //requestUrl!=null?requestUrl:
     }
 }

@@ -34,6 +34,13 @@ public class ThymeleafController {
         return "login";
     }
 
+    @GetMapping("/login-processing")
+    public String loginProcessing() {
+        System.out.printf("!!! ThymeleafController#loginProcessing entering\n");
+        // 处理登录逻辑
+        return "welcome"; // 登录成功后跳转的页面
+    }
+
     @GetMapping("/welcome")
     public String welcome() {
         System.out.printf("!!! ThymeleafController#welcome entering\n");
