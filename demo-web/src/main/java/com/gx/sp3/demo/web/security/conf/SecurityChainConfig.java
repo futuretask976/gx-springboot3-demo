@@ -41,7 +41,16 @@ public class SecurityChainConfig {
         // Beware that it can create a security vulnerability
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 // Here we are configuring our login form
-                .formLogin(Customizer.withDefaults())
+                .formLogin(formLogin -> {
+                        formLogin
+                                .loginPage("/login") // Login page will be accessed through this endpoint. We will create a controller method for this.
+                                .loginProcessingUrl("/login-processing") // This endpoint will be mapped internally. This URL will be our Login form post action.
+                                .usernameParameter("username")
+                                .passwordParameter("password")
+                                .permitAll() // We re permitting all for login page
+                                .defaultSuccessUrl("/welcome") // If the login is successful, user will be redirected to this URL.
+                                .failureUrl("/login?error=true"); // If the user fails to login, application will redirect the user to this endpoint
+                })
                 .authorizeHttpRequests(authorize ->
                         authorize
                                 // We are permitting all static resources to be accessed publicly
@@ -55,7 +64,11 @@ public class SecurityChainConfig {
                                 // Hence, once a request comes to our application, we will check if the user is authenticated or not.
                                 .anyRequest().authenticated()
                 )
-                .logout(Customizer.withDefaults())
+                .logout(logout ->
+                        logout
+                                .logoutUrl("/logout")
+                                .logoutSuccessUrl("/")
+                )
                 .exceptionHandling(customizer -> customizer
                         // .authenticationEntryPoint(gxAuthenticationEntryPoint)
                         .accessDeniedHandler(gxAccessDeniedHandler))

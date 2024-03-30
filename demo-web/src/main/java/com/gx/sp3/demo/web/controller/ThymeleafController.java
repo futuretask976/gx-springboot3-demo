@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ThymeleafController {
@@ -28,8 +29,8 @@ public class ThymeleafController {
      * @return
      */
     @GetMapping("/login")
-    public String login() {
-        System.out.printf("!!! ThymeleafController#login entering\n");
+    public String login(Model model, @RequestParam(name="error", required = false) String error) {
+        model.addAttribute("error", error);
         return "login";
     }
 

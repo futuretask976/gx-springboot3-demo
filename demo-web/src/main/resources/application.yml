@@ -45,7 +45,6 @@ secure:
       - /actuator/**
       - /druid/**
       - /test001
-      - /welcome
       - /failure
 
 server:
