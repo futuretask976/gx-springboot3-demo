@@ -7,6 +7,10 @@
 ### docker容器中运行
 通过mvn clean package打包后，会自动创建镜像文件，然后通过下面的命令运行镜像：
 ````
-docker run -p 8080:8080 --name demo-web --link mysql:db -v /etc/localtime:/etc/localtime -v /Users/Miya/DockerSpace/gx-springboot3-demo/logs:/var/logs -d gx-springboot3-demo/demo-web:1.0.0-SNAPSHOT
+docker run --name demo-web --link mysql:db \
+    -d \
+    -p 8080:8080 -v /etc/localtime:/etc/localtime \
+    -v /Users/Miya/DockerSpace/gx-springboot3-demo/logs:/var/logs \
+    gx-springboot3-demo/demo-web:1.0.0-SNAPSHOT
 ````
 需要注意的是，如果是在docker中运行，需要将数据库的链接host改为db，如果不是在docker中运行，则是将数据库的链接host改为localhost。
