@@ -7,7 +7,7 @@
 ### docker容器中运行
 通过mvn clean package打包后，会自动创建镜像文件，然后通过下面的命令运行镜像：
 ````
-docker run --name demo-web --link mysql:db \
+docker run --name demo-web --link mysql:dbhost \
     -d \
     -p 8080:8080 -v /etc/localtime:/etc/localtime \
     -v /Users/Miya/DockerSpace/gx-springboot3-demo/logs:/var/logs \
