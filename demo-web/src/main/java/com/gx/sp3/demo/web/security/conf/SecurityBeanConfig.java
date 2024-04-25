@@ -3,6 +3,7 @@ package com.gx.sp3.demo.web.security.conf;
 import com.gx.sp3.demo.web.security.component.GxAccessDeniedHandler;
 import com.gx.sp3.demo.web.security.component.GxAuthSuccessHandler;
 import com.gx.sp3.demo.web.security.component.GxAuthenticationEntryPoint;
+import com.gx.sp3.demo.web.security.component.GxLogoutSuccessHandler;
 import com.gx.sp3.demo.web.security.encoder.MD5PasswordEncoder;
 import com.gx.sp3.demo.web.security.service.GxUserDetailService;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -70,6 +72,11 @@ public class SecurityBeanConfig {
     @Bean
     public AuthenticationSuccessHandler authSuccessHandler() {
         return new GxAuthSuccessHandler();
+    }
+
+    @Bean
+    public LogoutSuccessHandler logoutSuccessHandler() {
+        return new GxLogoutSuccessHandler();
     }
 
 //    @Bean

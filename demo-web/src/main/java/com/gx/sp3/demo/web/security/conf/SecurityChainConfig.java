@@ -1,5 +1,9 @@
 package com.gx.sp3.demo.web.security.conf;
 
+import com.gx.sp3.demo.web.security.component.GxLogoutSuccessHandler;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,12 +13,15 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
+import java.io.IOException;
 import java.util.stream.Collectors;
 
 /**
@@ -32,6 +39,9 @@ public class SecurityChainConfig {
 
     @Autowired
     private AuthenticationEntryPoint gxAuthenticationEntryPoint;
+
+    @Autowired
+    private LogoutSuccessHandler gxLogoutSuccessHandler;
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -71,7 +81,11 @@ public class SecurityChainConfig {
                 .logout(logout ->
                         logout
                                 .logoutUrl("/logout")
-                                .logoutSuccessUrl("/bye")
+                                .logoutSuccessHandler(gxLogoutSuccessHandler)
+                                //.logoutSuccessUrl("/bye")
+                                .clearAuthentication(true)
+                                .invalidateHttpSession(true)
+                                .deleteCookies("JSESSIONID") // 如果你使用cookie来传递session id
                 )
                 .exceptionHandling(customizer -> customizer
                         .authenticationEntryPoint(gxAuthenticationEntryPoint)
