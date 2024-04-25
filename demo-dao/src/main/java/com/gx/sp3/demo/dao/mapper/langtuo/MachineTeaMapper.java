@@ -1,7 +1,7 @@
 package com.gx.sp3.demo.dao.mapper.langtuo;
 
 import com.gx.sp3.demo.dao.annotation.MySQLScan;
-import com.gx.sp3.demo.dao.pojo.MachineTeaPojo;
+import com.gx.sp3.demo.dao.pojo.langtuo.MachineTeaPojo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

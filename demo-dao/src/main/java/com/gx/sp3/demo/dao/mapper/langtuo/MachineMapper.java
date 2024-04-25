@@ -1,8 +1,7 @@
 package com.gx.sp3.demo.dao.mapper.langtuo;
 
 import com.gx.sp3.demo.dao.annotation.MySQLScan;
-import com.gx.sp3.demo.dao.pojo.HotelGuestPojo;
-import com.gx.sp3.demo.dao.pojo.MachinePojo;
+import com.gx.sp3.demo.dao.pojo.langtuo.MachinePojo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

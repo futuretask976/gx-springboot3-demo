@@ -4,7 +4,7 @@ import com.gx.sp3.demo.api.model.langtuo.MachineTeaOrderDTO;
 import com.gx.sp3.demo.api.result.GxResult;
 import com.gx.sp3.demo.api.service.langtuo.MachineTeaOrderService;
 import com.gx.sp3.demo.dao.accessor.langtuo.MachineTeaOrderMapperAccessor;
-import com.gx.sp3.demo.dao.pojo.MachineTeaOrderPojo;
+import com.gx.sp3.demo.dao.pojo.langtuo.MachineTeaOrderPojo;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 

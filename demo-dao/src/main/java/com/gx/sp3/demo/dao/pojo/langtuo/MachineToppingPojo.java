@@ -1,4 +1,4 @@
-package com.gx.sp3.demo.dao.pojo;
+package com.gx.sp3.demo.dao.pojo.langtuo;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Map;
 
 @Data
-public class MachineTeaToppingPojo {
+public class MachineToppingPojo {
     /**
      *
      */
@@ -30,12 +30,17 @@ public class MachineTeaToppingPojo {
     /**
      *
      */
-    private String teaCode;
+    private String toppingCode;
 
     /**
      *
      */
-    private String toppingCode;
+    private String toppingName;
+
+    /**
+     *
+     */
+    private String toppingImgLink;
 
     /**
      *

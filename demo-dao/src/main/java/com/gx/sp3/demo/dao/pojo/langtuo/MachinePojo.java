@@ -1,4 +1,4 @@
-package com.gx.sp3.demo.dao.pojo;
+package com.gx.sp3.demo.dao.pojo.langtuo;
 
 import lombok.Data;
 

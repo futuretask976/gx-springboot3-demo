@@ -4,7 +4,7 @@ import com.gx.sp3.demo.api.model.langtuo.MachineToppingDTO;
 import com.gx.sp3.demo.api.result.GxResult;
 import com.gx.sp3.demo.api.service.langtuo.MachineToppingService;
 import com.gx.sp3.demo.dao.accessor.langtuo.MachineToppingMapperAccessor;
-import com.gx.sp3.demo.dao.pojo.MachineToppingPojo;
+import com.gx.sp3.demo.dao.pojo.langtuo.MachineToppingPojo;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 

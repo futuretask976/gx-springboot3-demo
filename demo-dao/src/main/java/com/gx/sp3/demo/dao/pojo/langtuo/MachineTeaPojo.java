@@ -1,4 +1,4 @@
-package com.gx.sp3.demo.dao.pojo;
+package com.gx.sp3.demo.dao.pojo.langtuo;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Map;
 
 @Data
-public class MachineTeaOrderPojo {
+public class MachineTeaPojo {
     /**
      *
      */
@@ -25,17 +25,22 @@ public class MachineTeaOrderPojo {
     /**
      *
      */
-    private String orderId;
-
-    /**
-     *
-     */
     private String machineCode;
 
     /**
      *
      */
     private String teaCode;
+
+    /**
+     *
+     */
+    private String teaName;
+
+    /**
+     *
+     */
+    private String teaImgLink;
 
     /**
      *
