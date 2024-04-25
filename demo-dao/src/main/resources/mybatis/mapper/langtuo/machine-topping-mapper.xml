@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 一个namespace对应一个Mapper类（原来的dao） -->
-<mapper namespace="com.gx.sp3.demo.dao.mapper.MachineToppingMapper">
-    <resultMap type="com.gx.sp3.demo.dao.pojo.MachineToppingPojo" id="machineToppingPojoMap">
+<mapper namespace="com.gx.sp3.demo.dao.mapper.langtuo.MachineToppingMapper">
+    <resultMap type="com.gx.sp3.demo.dao.pojo.langtuo.MachineToppingPojo" id="machineToppingPojoMap">
         <result property="id" column="id"/>
         <result property="gmtCreated" column="gmt_created"/>
         <result property="gmtModified" column="gmt_modified"/>
@@ -27,7 +27,7 @@
     </select>
 
     <!-- 添加一个用户 -->
-    <insert id="insert" parameterType="com.gx.sp3.demo.dao.pojo.MachineToppingPojo">
+    <insert id="insert" parameterType="com.gx.sp3.demo.dao.pojo.langtuo.MachineToppingPojo">
         INSERT INTO `machine_topping` (
             `gmt_created`
             , `gmt_modified`
@@ -46,7 +46,7 @@
     </insert>
 
     <!-- 修改一个用户 -->
-    <update id="update" parameterType="com.gx.sp3.demo.dao.pojo.MachineToppingPojo">
+    <update id="update" parameterType="com.gx.sp3.demo.dao.pojo.langtuo.MachineToppingPojo">
         UPDATE machine_topping SET topping_name = #{topping_name} WHERE topping_code = #{toppingCode};
     </update>
 

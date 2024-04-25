@@ -42,17 +42,17 @@
     </resultMap>
 
     <!-- 查询一个用户 -->
-    <select id="getOne" resultMap="hotelGuestPojoMap">
+    <select id="get" resultMap="hotelGuestPojoMap">
         SELECT * FROM hotel_2000w WHERE id = #{id}
     </select>
 
     <!-- 查询所有用户 -->
-    <select id="getAll" resultMap="hotelGuestPojoMap">
+    <select id="list" resultMap="hotelGuestPojoMap">
         SELECT * FROM hotel_2000w LIMIT 100
     </select>
 
     <!-- 添加一个用户 -->
-    <insert id="addOne" parameterType="com.gx.sp3.demo.dao.pojo.HotelGuestPojo">
+    <insert id="insert" parameterType="com.gx.sp3.demo.dao.pojo.HotelGuestPojo">
         INSERT INTO  hotel_2000w (
             `name`,
             `cardno`,
@@ -123,12 +123,12 @@
     </insert>
 
     <!-- 修改一个用户 -->
-    <update id="updateOne" parameterType="com.gx.sp3.demo.dao.pojo.HotelGuestPojo">
+    <update id="update" parameterType="com.gx.sp3.demo.dao.pojo.HotelGuestPojo">
         UPDATE hotel_2000w SET balance = #{balance} WHERE id = #{id};
     </update>
 
     <!-- 删除一个用户 -->
-    <delete id="deleteOne">
+    <delete id="delete">
         DELETE FROM hotel_2000w WHERE id = #{id}
     </delete>
 </mapper>

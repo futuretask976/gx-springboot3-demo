@@ -1,7 +1,7 @@
 package com.gx.sp3.demo.dao.testor;
 
 import com.gx.sp3.demo.dao.helper.SqlSessionFactoryHelper;
-import com.gx.sp3.demo.dao.mapper.*;
+import com.gx.sp3.demo.dao.mapper.langtuo.*;
 import com.gx.sp3.demo.dao.pojo.*;
 import org.apache.ibatis.session.SqlSession;
 

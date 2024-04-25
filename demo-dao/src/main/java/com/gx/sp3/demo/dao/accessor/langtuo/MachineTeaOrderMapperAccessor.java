@@ -1,6 +1,6 @@
 package com.gx.sp3.demo.dao.accessor.langtuo;
 
-import com.gx.sp3.demo.dao.mapper.MachineTeaOrderMapper;
+import com.gx.sp3.demo.dao.mapper.langtuo.MachineTeaOrderMapper;
 import com.gx.sp3.demo.dao.pojo.MachineTeaOrderPojo;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;

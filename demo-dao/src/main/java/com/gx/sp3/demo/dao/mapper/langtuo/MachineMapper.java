@@ -1,4 +1,4 @@
-package com.gx.sp3.demo.dao.mapper;
+package com.gx.sp3.demo.dao.mapper.langtuo;
 
 import com.gx.sp3.demo.dao.annotation.MySQLScan;
 import com.gx.sp3.demo.dao.pojo.HotelGuestPojo;

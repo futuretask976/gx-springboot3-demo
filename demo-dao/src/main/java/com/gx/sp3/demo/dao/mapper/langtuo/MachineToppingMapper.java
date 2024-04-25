@@ -1,9 +1,9 @@
-package com.gx.sp3.demo.dao.mapper;
+package com.gx.sp3.demo.dao.mapper.langtuo;
 
 import com.gx.sp3.demo.dao.annotation.MySQLScan;
 import com.gx.sp3.demo.dao.pojo.HotelGuestPojo;
 import com.gx.sp3.demo.dao.pojo.MachineTeaPojo;
-import com.gx.sp3.demo.dao.pojo.MachineTeaToppingPojo;
+import com.gx.sp3.demo.dao.pojo.MachineToppingPojo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -13,33 +13,33 @@ import java.util.List;
 @Mapper
 @MySQLScan
 @Repository
-public interface MachineTeaToppingMapper {
+public interface MachineToppingMapper {
     /**
      *
-     * @param teaCode
+     * @param toppingCode
      * @return
      */
-    MachineTeaToppingPojo get(@Param("machineCode") String machineCode, @Param("teaCode") String teaCode, @Param("toppingCode") String topping);
+    MachineToppingPojo get(@Param("machineCode") String machineCode, @Param("toppingCode") String toppingCode);
 
     /**
      * 查询所有用户
      * @return
      */
-    List<MachineTeaToppingPojo> list();
+    List<MachineToppingPojo> list();
 
     /**
      *
-     * @param machineTeaToppingPojo
+     * @param menu
      * @return
      */
-    int insert(MachineTeaToppingPojo machineTeaToppingPojo);
+    int insert(MachineToppingPojo menu);
 
     /**
      *
-     * @param machineTeaToppingPojo
+     * @param menu
      * @return
      */
-    int update(MachineTeaToppingPojo machineTeaToppingPojo);
+    int update(MachineToppingPojo menu);
 
     /**
      *

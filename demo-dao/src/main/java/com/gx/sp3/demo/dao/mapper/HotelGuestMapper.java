@@ -17,32 +17,32 @@ public interface HotelGuestMapper {
      * @param id
      * @return
      */
-    HotelGuestPojo getOne(@Param("id") int id);
+    HotelGuestPojo get(@Param("id") int id);
 
     /**
      * 查询所有用户
      * @return
      */
-    List<HotelGuestPojo> getAll();
+    List<HotelGuestPojo> list();
 
     /**
      * 添加一个用户
      * @param user
      * @return
      */
-    int addOne(HotelGuestPojo user);
+    int insert(HotelGuestPojo user);
 
     /**
      * 修改一个用户
      * @param user
      * @return
      */
-    int updateOne(HotelGuestPojo user);
+    int update(HotelGuestPojo user);
 
     /**
      * 删除一个用户
      * @param id
      * @return
      */
-    int deleteOne(int id);
+    int delete(int id);
 }

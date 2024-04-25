@@ -12,6 +12,6 @@ public class HotelGuestMapperAccessor {
     private HotelGuestMapper mapper;
 
     public HotelGuestPojo getOne(@Param("id") int id) {
-        return mapper.getOne(id);
+        return mapper.get(id);
     }
 }

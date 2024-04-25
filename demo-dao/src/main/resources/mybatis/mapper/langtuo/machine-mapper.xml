@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 一个namespace对应一个Mapper类（原来的dao） -->
-<mapper namespace="com.gx.sp3.demo.dao.mapper.MachineMapper">
-    <resultMap type="com.gx.sp3.demo.dao.pojo.MachinePojo" id="machinePojoMap">
+<mapper namespace="com.gx.sp3.demo.dao.mapper.langtuo.MachineMapper">
+    <resultMap type="com.gx.sp3.demo.dao.pojo.langtuo.MachinePojo" id="machinePojoMap">
         <result property="id" column="id"/>
         <result property="gmtCreated" column="gmt_created"/>
         <result property="gmtModified" column="gmt_modified"/>
@@ -25,7 +25,7 @@
     </select>
 
     <!-- 添加一个用户 -->
-    <insert id="insert" parameterType="com.gx.sp3.demo.dao.pojo.MachinePojo">
+    <insert id="insert" parameterType="com.gx.sp3.demo.dao.pojo.langtuo.MachinePojo">
         INSERT INTO `machine` (
             `gmt_created`
             , `gmt_modified`
@@ -40,7 +40,7 @@
     </insert>
 
     <!-- 修改一个用户 -->
-    <update id="update" parameterType="com.gx.sp3.demo.dao.pojo.MachinePojo">
+    <update id="update" parameterType="com.gx.sp3.demo.dao.pojo.langtuo.MachinePojo">
         UPDATE machine SET machine_name = #{machineName} WHERE machine_code = #{machineCode};
     </update>
 
