@@ -1,0 +1,22 @@
+package com.gx.sp3.demo.dao.accessor.langtuo;
+
+import com.gx.sp3.demo.dao.mapper.MachineToppingMapper;
+import com.gx.sp3.demo.dao.pojo.MachineToppingPojo;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+@Component
+public class MachineToppingMapperAccessor {
+    @Resource
+    private MachineToppingMapper mapper;
+
+    public List<MachineToppingPojo> list() {
+        return mapper.list();
+    }
+
+    public MachineToppingPojo get(String machineCode, String toppingCode) {
+        return mapper.get(machineCode, toppingCode);
+    }
+}

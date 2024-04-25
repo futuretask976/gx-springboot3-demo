@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class HotelGuestMapperAccessor {
     @Resource
-    private HotelGuestMapper hotelGuestMapper;
+    private HotelGuestMapper mapper;
 
     public HotelGuestPojo getOne(@Param("id") int id) {
-        return hotelGuestMapper.getOne(id);
+        return mapper.getOne(id);
     }
 }

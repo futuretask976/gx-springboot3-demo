@@ -1,0 +1,49 @@
+package com.gx.sp3.demo.dao.mapper;
+
+import com.gx.sp3.demo.dao.annotation.MySQLScan;
+import com.gx.sp3.demo.dao.pojo.HotelGuestPojo;
+import com.gx.sp3.demo.dao.pojo.MachinePojo;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Mapper
+@MySQLScan
+@Repository
+public interface MachineMapper {
+    /**
+     *
+     * @param machineCode
+     * @return
+     */
+    MachinePojo get(@Param("machineCode") String machineCode);
+
+    /**
+     *
+     * @return
+     */
+    List<MachinePojo> list();
+
+    /**
+     *
+     * @param machinePojo
+     * @return
+     */
+    int insert(MachinePojo machinePojo);
+
+    /**
+     *
+     * @param machinePojo
+     * @return
+     */
+    int update(MachinePojo machinePojo);
+
+    /**
+     *
+     * @param machineCode
+     * @return
+     */
+    int delete(String machineCode);
+}

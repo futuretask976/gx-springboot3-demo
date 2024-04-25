@@ -8,7 +8,7 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://dbhost:3306/gx_example?useSSL=false&amp;characterEncoding=utf8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/gx_example?useSSL=false&amp;characterEncoding=utf8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"/>
                 <property name="username" value="root"/>
                 <property name="password" value="rootpassword"/>
             </dataSource>
@@ -17,5 +17,10 @@
     <mappers>
         <!-- 每一个Mapper.xml都要在Mybatis核心配置文件中注册！ -->
         <mapper resource="mybatis/mapper/hotelguest-mapper.xml"/>
+        <mapper resource="mybatis/mapper/machine-mapper.xml"/>
+        <mapper resource="mybatis/mapper/machine-tea-mapper.xml"/>
+        <mapper resource="mybatis/mapper/machine-tea-order-mapper.xml"/>
+        <mapper resource="mybatis/mapper/machine-tea-topping-mapper.xml"/>
+        <mapper resource="mybatis/mapper/machine-topping-mapper.xml"/>
     </mappers>
 </configuration>

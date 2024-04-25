@@ -257,6 +257,15 @@
                             <image>
                                 <!--定义镜像名称-->
                                 <name>gx-springboot3-demo/${project.name}:${project.version}</name>
+                                <run>
+                                    <cmd>
+                                        <exec>
+                                            <args>sh</args>
+                                            <args>-c</args>
+                                            <args>microdnf install yum</args>
+                                        </exec>
+                                    </cmd>
+                                </run>
                                 <!--定义镜像构建行为-->
                                 <build>
                                     <!--定义基础镜像-->
