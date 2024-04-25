@@ -45,8 +45,6 @@ secure:
       - /actuator/**
       - /druid/**
       - /test001
-      - /bye
-      - /machine/**
 
 server:
   servlet:

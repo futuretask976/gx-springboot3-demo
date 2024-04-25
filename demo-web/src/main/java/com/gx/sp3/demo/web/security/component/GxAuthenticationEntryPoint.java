@@ -1,5 +1,6 @@
 package com.gx.sp3.demo.web.security.component;
 
+import com.alibaba.fastjson.JSONObject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,10 +16,19 @@ public class GxAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
             AuthenticationException e) throws IOException {
-        System.out.printf("!!! GxAccessDeniedHandler#handle entering: %s， %s\n", e.getMessage(), e.toString());
+        System.out.printf("!!! GxAuthenticationEntryPoint#commence entering: %s， %s\n", e.getMessage(), e.toString());
+        System.out.printf("!!! GxAuthenticationEntryPoint#commence path: %s， %s\n", request.getContextPath(), request.getServletPath());
+
+        // 如果是前后端分离项目，这里可以返回JSON字符串提示前端登录失败
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        JSONObject responseBody = new JSONObject();
+        responseBody.put("loginSuccess", "false");
+        response.getWriter().println(responseBody.toJSONString());
+        response.getWriter().flush();
+        // 如果不是前后端分离项目，这里返回/login渲染thymeleaf模板
         // 设置状态码为302
-        response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
+        // response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
         // 设置Location头部，指定重定向的URL
-        response.setHeader("Location", request.getContextPath() + "/login");
+        // response.setHeader("Location", request.getContextPath() + "/login");
     }
 }
