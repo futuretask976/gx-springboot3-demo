@@ -12,6 +12,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 public class SecurityBeanConfig {
@@ -43,6 +46,25 @@ public class SecurityBeanConfig {
     public UserDetailsService userDetailsService() {
         System.out.printf("!!! SecurityBaseConfig#userDetailsService entering\n");
         return new GxUserDetailService();
+    }
+
+    /**
+     * 允许跨域调用的过滤器
+     */
+    @Bean
+    public CorsFilter corsFilter() {
+        CorsConfiguration config = new CorsConfiguration();
+        // 允许所有域名进行跨域调用
+        config.addAllowedOriginPattern("*");
+        // 允许跨越发送cookie
+        config.setAllowCredentials(true);
+        // 放行全部原始头信息
+        config.addAllowedHeader("*");
+        // 允许所有请求方法跨域调用
+        config.addAllowedMethod("*");
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
     }
 
     @Bean

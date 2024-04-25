@@ -23,6 +23,7 @@ public class MachineController {
      */
     @GetMapping(value = "/list")
     public GxResult<List<MachineDTO>> list() {
+        System.out.printf("MachineController#list entering: %s\n", System.currentTimeMillis());
         GxResult<List<MachineDTO>> result = machineService.list();
         return result;
     }
