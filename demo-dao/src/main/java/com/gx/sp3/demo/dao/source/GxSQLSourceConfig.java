@@ -37,9 +37,9 @@ public class GxSQLSourceConfig {
     public DataSource gxSQLDatasource() {
         System.out.println("!!! GxSQLSourceConfig#gxSQLDatasource entering");
         return DataSourceBuilder.create()
-                .url("jdbc:mysql://localhost:3306/gx_example?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true")
-                .username("root")
-                .password("rootpassword")
+                .url("jdbc:mysql://rm-cn-28t3ppz9e0001yho.rwlb.rds.aliyuncs.com:3306/gx_mysql_demo?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true")
+                .username("Miya796")
+                .password("sakyaPass@1")
                 .build();
     }
 
