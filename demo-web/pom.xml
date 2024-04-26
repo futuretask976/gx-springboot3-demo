@@ -11,7 +11,8 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>demo-web</artifactId>
-<!--    <packaging>war</packaging>    -->
+    <!-- 如果是springboot直接启动，注释掉下面的war，改为默认的jar形式 -->
+    <packaging>war</packaging>
 
     <properties>
         <java.version>17</java.version>
@@ -151,10 +152,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-            </plugin>
+            <!-- 如果需要打包成为docker镜像，放开下面的注释 -->
+<!--            <plugin>-->
+<!--                <groupId>io.fabric8</groupId>-->
+<!--                <artifactId>docker-maven-plugin</artifactId>-->
+<!--            </plugin>-->
         </plugins>
         <resources>
             <resource>
