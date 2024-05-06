@@ -1,9 +1,7 @@
 package com.gx.sp3.demo.web.security.conf;
 
-import com.gx.sp3.demo.web.security.component.GxAccessDeniedHandler;
-import com.gx.sp3.demo.web.security.component.GxAuthSuccessHandler;
-import com.gx.sp3.demo.web.security.component.GxAuthenticationEntryPoint;
-import com.gx.sp3.demo.web.security.component.GxLogoutSuccessHandler;
+import com.gx.sp3.demo.web.helper.GxJwtTokenHelper;
+import com.gx.sp3.demo.web.security.component.*;
 import com.gx.sp3.demo.web.security.encoder.MD5PasswordEncoder;
 import com.gx.sp3.demo.web.security.service.GxUserDetailService;
 import org.springframework.context.annotation.Bean;
@@ -77,6 +75,16 @@ public class SecurityBeanConfig {
     @Bean
     public LogoutSuccessHandler logoutSuccessHandler() {
         return new GxLogoutSuccessHandler();
+    }
+
+    @Bean
+    public GxJwtAuthenticationTokenFilter gxJwtAuthenticationTokenFilter() {
+        return new GxJwtAuthenticationTokenFilter();
+    }
+
+    @Bean
+    public GxJwtTokenHelper gxJwtTokenHelper() {
+        return new GxJwtTokenHelper();
     }
 
 //    @Bean
