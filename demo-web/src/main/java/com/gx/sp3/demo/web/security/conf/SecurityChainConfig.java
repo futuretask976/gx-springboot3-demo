@@ -1,5 +1,6 @@
 package com.gx.sp3.demo.web.security.conf;
 
+import com.gx.sp3.demo.web.security.component.GxJwtAuthenticationTokenFilter;
 import com.gx.sp3.demo.web.security.component.GxLogoutSuccessHandler;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 import java.io.IOException;
@@ -49,8 +51,14 @@ public class SecurityChainConfig {
     @Autowired
     private AuthenticationSuccessHandler gxAuthSuccessHandler;
 
+    @Autowired
+    private GxJwtAuthenticationTokenFilter gxJwtAuthenticationTokenFilter;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+        // token简单验证
+        httpSecurity.addFilterBefore(gxJwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+
         // We are disabling CSRF so that our forms don't complain about a CSRF token.
         // Beware that it can create a security vulnerability
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)

@@ -11,7 +11,7 @@ public class MD5PasswordEncoder implements PasswordEncoder {
 
     @Override
     public String encode(CharSequence rawPassword) {
-        System.out.printf("!!! MD5PasswordEncoder#encode rawPassword=%s\n", rawPassword);
+        System.out.printf("!!! MD5PasswordEncoder#encode Password=%s\n", rawPassword);
         try {
             // 使用JDK自带的MD5加密
             MessageDigest md5 = MessageDigest.getInstance("MD5");
